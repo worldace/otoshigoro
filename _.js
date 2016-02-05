@@ -95,10 +95,10 @@ function DownloadVideo(url, filename){
 
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
-        dl.src = url;
         dl.width  = 1;
         dl.height = 1;
         document.body.appendChild(dl);
+        dl.src = url;
     }
     else{
         dl = document.createElement('a');
