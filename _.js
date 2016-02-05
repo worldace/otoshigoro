@@ -40,7 +40,6 @@ else{
 LoadScript(files);
 
 
-
 function LoadScript(files){
 	if(files.length == 0){ return; }
 
@@ -54,6 +53,7 @@ function LoadScript(files){
 }
 
 
+
 function getHome(){
 	var elements   = document.getElementsByTagName("script");
 	var otoshigoro = elements[elements.length-1];
@@ -65,5 +65,45 @@ function getHome(){
 	return home;
 }
 
-
 }();
+
+
+function SplitQueryString(query){
+    if(!query){ return false; }
+
+    var result = {};
+    var parameters = query.split('&');
+
+    for(var i = 0; i < parameters.length; i++){
+        var element = parameters[i].split('=');
+        var name    = decodeURIComponent(element[0]);
+        var value   = decodeURIComponent(element[1]);
+
+        result[name] = value;
+    }
+    return result;
+}
+
+
+function DownloadVideo(url, filename){
+
+    var ua  = window.navigator.userAgent.toLowerCase();
+    var dl;
+
+    if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
+        dl = document.createElement('iframe');
+        dl.src = url;
+        dl.width  = 1;
+        dl.height = 1;
+        document.body.appendChild(dl);
+    }
+    else{
+        dl = document.createElement('a');
+        dl.href = url;
+        dl.download = filename;
+        document.body.appendChild(dl);
+        dl.click();
+    }
+
+}
+

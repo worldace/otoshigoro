@@ -9,7 +9,7 @@ var b = a.replace(/\u0026/g, '&').split(',');
 var c = [];
 
 for(var i = 0; i < b.length; i++){
-    b[i] = SplitQueryString(b[i]); //b[i] = {url,itag,type,quality,fallback_host}
+    b[i] = SplitQueryString(b[i]); //b[i] = {s,url,itag,type,quality,fallback_host}
     b[i].itag1 = itag1[b[i].itag];
     b[i].itag2 = itag2[b[i].itag];
 
@@ -18,42 +18,27 @@ for(var i = 0; i < b.length; i++){
 
 if(c.length == 0){ return false; }
 c.sort(function(x,y){ return (x.itag2 > y.itag2) ? -1 : 1; });
-//console.log(c);
 
 var video_title = t;
 var video_url   = c[0].url;
 var video_type  = c[0].itag1;
 
-var download = "";
+if(c[0].s){
+    video_url = video_url + "&signature=" + c[0].s;
+}
+
+
 var useragent = window.navigator.userAgent.toLowerCase();
 if (useragent.indexOf('msie') != -1 || useragent.indexOf('trident') != -1) {
     video_url = video_url + "&title=" + EscapeSJIS(video_title);
-    download = $("<iframe></iframe>", {src:video_url, width:1, height:1});
-    download.appendTo("body");
 }
 else{
     video_url = video_url + "&title=" + video_title;
-    download = $("<a></a>", {href:video_url, download:video_title+'.'+video_type});
-    download.appendTo("body");
-    download[0].click();
 }
 
+DownloadVideo(video_url);
 
-function SplitQueryString(query){
-    if(!query){ return false; }
-
-    var result = {};
-    var parameters = query.split('&');
-
-    for(var i = 0; i < parameters.length; i++){
-        var element = parameters[i].split('=');
-        var name    = decodeURIComponent(element[0]);
-        var value   = decodeURIComponent(element[1]);
-
-        result[name] = value;
-    }
-    return result;
-}
+console.log(video_url);
 
 
 }($.noConflict(true));

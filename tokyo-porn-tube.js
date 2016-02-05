@@ -10,7 +10,7 @@ $.ajax({
     success: function(xml){
         var video_url = $(xml).find("video").find("src").text();
         if(video_url){
-            $("<iframe></iframe>", {src:video_url, width:1, height:1}).appendTo("body");
+            DownloadVideo(video_url);
         }
     }
 });
