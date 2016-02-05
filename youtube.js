@@ -38,7 +38,7 @@ else{
 
 DownloadVideo(video_url);
 
-console.log(video_url);
+//console.log(video_url);
 
 
 }($.noConflict(true));
