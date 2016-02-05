@@ -32,6 +32,9 @@ else if(/himado\.in/i.test(domain)){
 else if(/nosub\.tv/i.test(domain)){
 	files = [jquery, home+"nosub.js"+nocache];
 }
+else if(/anitube\.se/i.test(domain)){
+	files = [jquery, home+"anitube.js"+nocache];
+}
 
 else{
 	return false;
