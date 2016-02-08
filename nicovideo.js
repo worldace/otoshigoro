@@ -1,4 +1,4 @@
-!function($){
+$(function($){
 
 
 var ID = document.URL.match(/watch\/(\w*\d+)/i);
@@ -20,4 +20,4 @@ $.ajax({
 
 
 
-}($.noConflict(true));
+}($.noConflict(true)));

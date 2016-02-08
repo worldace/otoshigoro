@@ -1,4 +1,4 @@
-!function($){
+$(function($){
 
 var m = document.body.innerHTML.match(/\/lianyue\/\?\/url\/([^\&]+)/i);
 
@@ -8,4 +8,4 @@ if(RegExp.$1){
 }
 
 
-}($.noConflict(true));
+}($.noConflict(true)));

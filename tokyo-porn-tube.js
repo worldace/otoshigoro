@@ -1,4 +1,4 @@
-!function($){
+$(function($){
 
 var ID = document.URL.match(/(\d+)/i);
 if(!ID){ return false; }
@@ -16,4 +16,4 @@ $.ajax({
 });
 
 
-}($.noConflict(true));
+}($.noConflict(true)));

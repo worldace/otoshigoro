@@ -93,12 +93,24 @@ function DownloadVideo(url, filename){
     var ua  = window.navigator.userAgent.toLowerCase();
     var dl;
 
+    if(!filename){
+        filename = "";
+    }
+
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
         dl.width  = 1;
         dl.height = 1;
         document.body.appendChild(dl);
         dl.src = url;
+    }
+    else if (ua.indexOf('firefox') != -1){
+        dl = document.createElement('a');
+        dl.href = url;
+        dl.download = filename;
+        dl.target = "_blank";
+        document.body.appendChild(dl);
+        dl.click();
     }
     else{
         dl = document.createElement('a');
@@ -108,5 +120,6 @@ function DownloadVideo(url, filename){
         dl.click();
     }
 
+    //console.log(video_url);
 }
 

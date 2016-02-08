@@ -1,4 +1,4 @@
-!function($){
+$(function($){
 
 var ID = document.URL.match(/\/content\/(\w+)/i);
 if(!ID){ return false; }
@@ -15,4 +15,4 @@ $.ajax({
 });
 
 
-}($.noConflict(true));
+}($.noConflict(true)));

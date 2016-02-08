@@ -1,4 +1,4 @@
-!function($){
+$(function($){
 
 
 var ID = document.URL.match(/\/video(\d+)\//i);
@@ -14,4 +14,4 @@ if(flashvars) {
 }
 
 
-}($.noConflict(true));
+}($.noConflict(true)));
