@@ -8,22 +8,22 @@ var files   = [];
 
 
 
-if(/\.nicovideo\.jp/i.test(domain)){
+if(/nicovideo\.jp/i.test(domain)){
 	files = [jquery, home+"nicovideo.js"+nocache];
 }
 else if(/video\.fc2\.com/i.test(domain)){
 	files = [jquery, home+"lib/md5.js", home+"fc2.js"+nocache];
 }
-else if(/\.youtube\.com/i.test(domain)){
+else if(/youtube\.com/i.test(domain)){
 	files = [jquery, home+"lib/ecl.js", home+"youtube.js"+nocache];
 }
-else if(/\.xvideos\.com/i.test(domain)){
+else if(/xvideos\.com/i.test(domain)){
 	files = [jquery, home+"xvideos.js"+nocache];
 }
-else if(/\.tokyo-porn-tube\.com/i.test(domain)){
+else if(/tokyo-porn-tube\.com/i.test(domain)){
 	files = [jquery, home+"tokyo-porn-tube.js"+nocache];
 }
-else if(/\.tokyo-tube\.com/i.test(domain)){
+else if(/tokyo-tube\.com/i.test(domain)){
 	files = [jquery, home+"tokyo-tube.js"+nocache];
 }
 else if(/himado\.in/i.test(domain)){
@@ -93,10 +93,6 @@ function DownloadVideo(url, filename){
     var ua  = window.navigator.userAgent.toLowerCase();
     var dl;
 
-    if(!filename){
-        filename = "";
-    }
-
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
         dl.width  = 1;
@@ -120,6 +116,6 @@ function DownloadVideo(url, filename){
         dl.click();
     }
 
-    //console.log(video_url);
+    //console.log(url);
 }
 
