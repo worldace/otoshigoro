@@ -21,13 +21,14 @@ c.sort(function(x,y){ return (x.itag2 > y.itag2) ? -1 : 1; });
 
 var video_title = t;
 var video_url   = c[0].url;
-var video_type  = c[0].itag1;
 
+
+//動画URLにsignature追加(これが必要なのかは分からない)
 if(c[0].s){
     video_url = video_url + "&signature=" + c[0].s;
 }
 
-
+//動画URLにtitle追加
 var useragent = window.navigator.userAgent.toLowerCase();
 if (useragent.indexOf('msie') != -1 || useragent.indexOf('trident') != -1) {
     video_url = video_url + "&title=" + EscapeSJIS(video_title);
