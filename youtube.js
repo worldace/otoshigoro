@@ -9,7 +9,7 @@ var b = a.replace(/\u0026/g, '&').split(',');
 var c = [];
 
 for(var i = 0; i < b.length; i++){
-    b[i] = SplitQueryString(b[i]); //b[i] = {s,url,itag,type,quality,fallback_host}
+    b[i] = オトシゴロ.クエリ分解(b[i]); //b[i] = {s,url,itag,type,quality,fallback_host}
     b[i].itag1 = itag1[b[i].itag];
     b[i].itag2 = itag2[b[i].itag];
 
@@ -37,7 +37,7 @@ else{
     video_url = video_url + "&title=" + video_title;
 }
 
-DownloadVideo(video_url);
+オトシゴロ.ダウンロード(video_url);
 
 
 }($.noConflict(true)));

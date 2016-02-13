@@ -1,9 +1,9 @@
 $(function($){
 
-var video_url = SplitQueryString(VideoList[getVideoIndex()].flashvars).file;
+var video_url = オトシゴロ.クエリ分解(VideoList[getVideoIndex()].flashvars).file;
 
 if(video_url){
-    DownloadVideo(video_url);
+    オトシゴロ.ダウンロード(video_url);
 }
 
 

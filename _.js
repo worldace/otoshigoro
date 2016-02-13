@@ -1,49 +1,49 @@
-!function(){
-
-var home    = "https://ss1.xrea.com/musou.s38.xrea.com/d/";
-var jquery  = "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js";
-var domain  = document.domain;
-var nocache = '?' + (new Date).getTime();
-var files   = [];
+var オトシゴロ = {
 
 
-
-if(/nicovideo\.jp/i.test(domain)){
-	files = [jquery, home+"nicovideo.js"+nocache];
-}
-else if(/video\.fc2\.com/i.test(domain)){
-	files = [jquery, home+"lib/md5.js", home+"fc2.js"+nocache];
-}
-else if(/youtube\.com/i.test(domain)){
-	files = [jquery, home+"lib/ecl.js", home+"youtube.js"+nocache];
-}
-else if(/xvideos\.com/i.test(domain)){
-	files = [jquery, home+"xvideos.js"+nocache];
-}
-else if(/tokyo-porn-tube\.com/i.test(domain)){
-	files = [jquery, home+"tokyo-porn-tube.js"+nocache];
-}
-else if(/tokyo-tube\.com/i.test(domain)){
-	files = [jquery, home+"tokyo-tube.js"+nocache];
-}
-else if(/himado\.in/i.test(domain)){
-	files = [jquery, home+"himado.js"+nocache];
-}
-else if(/nosub\.tv/i.test(domain)){
-	files = [jquery, home+"nosub.js"+nocache];
-}
-else if(/anitube\.se/i.test(domain)){
-	files = [jquery, home+"anitube.js"+nocache];
-}
-
-else{
-	return false;
-}
-
-LoadScript(files);
+ホームURL: "https://ss1.xrea.com/musou.s38.xrea.com/d/",
 
 
-function LoadScript(files){
+ルーター: function(){
+
+    var files   = [];
+    var jQuery  = "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js";
+    var nocache = '?' + (new Date).getTime();
+
+    if(/nicovideo\.jp/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"nicovideo.js"+nocache];
+    }
+    else if(/video\.fc2\.com/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"lib/md5.js", オトシゴロ.ホームURL+"fc2.js"+nocache];
+    }
+    else if(/youtube\.com/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"lib/ecl.js", オトシゴロ.ホームURL+"youtube.js"+nocache];
+    }
+    else if(/xvideos\.com/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"xvideos.js"+nocache];
+    }
+    else if(/tokyo-porn-tube\.com/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"tokyo-porn-tube.js"+nocache];
+    }
+    else if(/tokyo-tube\.com/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"tokyo-tube.js"+nocache];
+    }
+    else if(/himado\.in/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"himado.js"+nocache];
+    }
+    else if(/nosub\.tv/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"nosub.js"+nocache];
+    }
+    else if(/anitube\.se/i.test(document.domain)){
+    	files = [jQuery, オトシゴロ.ホームURL+"anitube.js"+nocache];
+    }
+
+    return files;
+},
+
+
+ローダー: function(files){
+
 	if(files.length == 0){ return; }
 
     var file   = files.shift();
@@ -51,44 +51,12 @@ function LoadScript(files){
 	document.body.appendChild(script);
 
 	script.charset = "UTF-8";
-	script.onload  = function(){ LoadScript(files); }
+	script.onload  = function(){ オトシゴロ.ローダー(files); }
 	script.src     = file;
-}
+},
 
 
-
-function getHome(){
-	var elements   = document.getElementsByTagName("script");
-	var otoshigoro = elements[elements.length-1];
-	var home       = otoshigoro.src.replace(/_\.js\?\d+$/, "");
-
-	otoshigoro.id = "otoshigoro";
-	otoshigoro.setAttribute("data-home", home);
-
-	return home;
-}
-
-}();
-
-
-function SplitQueryString(query){
-    if(!query){ return false; }
-
-    var result = {};
-    var parameters = query.split('&');
-
-    for(var i = 0; i < parameters.length; i++){
-        var element = parameters[i].split('=');
-        var name    = decodeURIComponent(element[0]);
-        var value   = decodeURIComponent(element[1]);
-
-        result[name] = value;
-    }
-    return result;
-}
-
-
-function DownloadVideo(url, filename){
+ダウンロード: function(url, filename){
 
     var ua  = window.navigator.userAgent.toLowerCase();
     var dl;
@@ -115,7 +83,30 @@ function DownloadVideo(url, filename){
         document.body.appendChild(dl);
         dl.click();
     }
-
+    
     //console.log(url);
+},
+
+
+クエリ分解: function(str){
+
+    if(!str){ return false; }
+
+    var result = {};
+    var parameters = str.split('&');
+
+    for(var i = 0; i < parameters.length; i++){
+        var element = parameters[i].split('=');
+        var name    = decodeURIComponent(element[0]);
+        var value   = decodeURIComponent(element[1]);
+
+        result[name] = value;
+    }
+    return result;
 }
 
+
+};
+
+
+オトシゴロ.ローダー(オトシゴロ.ルーター());

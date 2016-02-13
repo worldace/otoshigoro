@@ -10,7 +10,7 @@ $.ajax({
     success: function(xml){
         var video_url = $(xml).find("video").find("src").text();
         if(video_url){
-            DownloadVideo(video_url);
+            オトシゴロ.ダウンロード(video_url);
         }
     }
 });
