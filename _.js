@@ -4,37 +4,37 @@ var オトシゴロ = {
 ホームURL: "https://ss1.xrea.com/musou.s38.xrea.com/d/",
 
 
-ルーター: function(){
+ルーター: function(host){
 
     var files   = [];
     var jQuery  = "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js";
     var nocache = '?' + (new Date).getTime();
 
-    if(/nicovideo\.jp/i.test(document.domain)){
+    if(/nicovideo\.jp/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"nicovideo.js"+nocache];
     }
-    else if(/video\.fc2\.com/i.test(document.domain)){
+    else if(/video\.fc2\.com/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"lib/md5.js", オトシゴロ.ホームURL+"fc2.js"+nocache];
     }
-    else if(/youtube\.com/i.test(document.domain)){
+    else if(/youtube\.com/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"lib/ecl.js", オトシゴロ.ホームURL+"youtube.js"+nocache];
     }
-    else if(/xvideos\.com/i.test(document.domain)){
+    else if(/xvideos\.com/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"xvideos.js"+nocache];
     }
-    else if(/tokyo-porn-tube\.com/i.test(document.domain)){
+    else if(/tokyo-porn-tube\.com/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"tokyo-porn-tube.js"+nocache];
     }
-    else if(/tokyo-tube\.com/i.test(document.domain)){
+    else if(/tokyo-tube\.com/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"tokyo-tube.js"+nocache];
     }
-    else if(/himado\.in/i.test(document.domain)){
+    else if(/himado\.in/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"himado.js"+nocache];
     }
-    else if(/nosub\.tv/i.test(document.domain)){
+    else if(/nosub\.tv/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"nosub.js"+nocache];
     }
-    else if(/anitube\.se/i.test(document.domain)){
+    else if(/anitube\.se/i.test(host)){
     	files = [jQuery, オトシゴロ.ホームURL+"anitube.js"+nocache];
     }
 
@@ -109,4 +109,4 @@ var オトシゴロ = {
 };
 
 
-オトシゴロ.ローダー(オトシゴロ.ルーター());
+オトシゴロ.ローダー(オトシゴロ.ルーター(document.domain));
