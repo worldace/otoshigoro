@@ -45,13 +45,14 @@ var オトシゴロ = {
 ローダー: function(files){
 
 	if(files.length == 0){ return; }
-
+    
+    var that   = this;
     var file   = files.shift();
 	var script = document.createElement('script');
 	document.body.appendChild(script);
 
 	script.charset = "UTF-8";
-	script.onload  = function(){ this.ローダー(files); }.bind(this);
+	script.onload  = function(){ that.ローダー(files); };
 	script.src     = file;
 },
 
