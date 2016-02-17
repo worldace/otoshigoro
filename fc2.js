@@ -9,11 +9,11 @@ var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_"+"gGddgPfeaf_gzyr
 
 オトシゴロ.APIアクセス(apiurl, function(xhr){
     var query = オトシゴロ.クエリ分解(xhr.responseText);
-    if(query.filepath){
-        var video_url = query.filepath + '?mid=' + query.mid;
 
-        オトシゴロ.ダウンロード(video_url);
-    }
+    if(!query.filepath){ return false; }
+    var 動画URL = query.filepath + '?mid=' + query.mid;
+ 
+    オトシゴロ.ダウンロード(動画URL);
 });
 
 
