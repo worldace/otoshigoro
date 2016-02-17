@@ -9,31 +9,31 @@ var オトシゴロ = {
     var files   = [];
     var nocache = '?' + Date.now();
 
-    if(/nicovideo\.jp/i.test(host)){
+    if(host.indexOf("nicovideo.jp") >= 0){
     	files = [this.ホームURL+"nicovideo.js"+nocache];
     }
-    else if(/video\.fc2\.com/i.test(host)){
+    else if(host.indexOf("video.fc2.com") >= 0){
     	files = [this.ホームURL+"lib/md5.js", this.ホームURL+"fc2.js"+nocache];
     }
-    else if(/youtube\.com/i.test(host)){
+    else if(host.indexOf("youtube.com") >= 0){
     	files = [this.ホームURL+"lib/ecl.js", this.ホームURL+"youtube.js"+nocache];
     }
-    else if(/xvideos\.com/i.test(host)){
+    else if(host.indexOf("xvideos.com") >= 0){
     	files = [this.ホームURL+"xvideos.js"+nocache];
     }
-    else if(/tokyo-porn-tube\.com/i.test(host)){
+    else if(host.indexOf("tokyo-porn-tube.com") >= 0){
     	files = [this.ホームURL+"tokyo-porn-tube.js"+nocache];
     }
-    else if(/tokyo-tube\.com/i.test(host)){
+    else if(host.indexOf("tokyo-tube.com") >= 0){
     	files = [this.ホームURL+"tokyo-tube.js"+nocache];
     }
-    else if(/himado\.in/i.test(host)){
+    else if(host.indexOf("himado.in") >= 0){
     	files = [this.ホームURL+"himado.js"+nocache];
     }
-    else if(/nosub\.tv/i.test(host)){
+    else if(host.indexOf("nosub.tv") >= 0){
     	files = [this.ホームURL+"nosub.js"+nocache];
     }
-    else if(/anitube\.se/i.test(host)){
+    else if(host.indexOf("anitube.se") >= 0){
     	files = [this.ホームURL+"anitube.js"+nocache];
     }
 
