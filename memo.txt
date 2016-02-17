@@ -9,3 +9,23 @@ XVIDEO で FirefoxとChromeが引っ掛かる
 --------------------------------------------------------------------
 YouTube参考
 https://github.com/gantt/downloadyoutube
+-------------------------------------------------------------------
+
+■ブックマークレットでDOM構築前後で処理を変える(IE9以降)
+javascript:!function(){
+    var f = function(){
+        var s=document.createElement('script');
+        document.body.appendChild(s);
+        s.charset='UTF-8';
+        s.src='https://ss1.xrea.com/musou.s38.xrea.com/d/_.js?'+(new Date).getTime();
+    };
+    if(document.readyState === 'complete' || document.readyState === 'interactive'){
+        f();
+    }
+    else{
+        document.addEventListener("DOMContentLoaded", f);
+    }
+}();
+
+
+javascript:!function(){var f=function(){var s=document.createElement('script');document.body.appendChild(s);s.charset='UTF-8';s.src='https://ss1.xrea.com/musou.s38.xrea.com/d/_.js?'+(new Date).getTime();};(document.readyState==='complete'||document.readyState==='interactive')?f():document.addEventListener("DOMContentLoaded",f)}();
