@@ -1,19 +1,23 @@
-$(function($){
+!function(){
+
 
 var ID = document.URL.match(/(\d+)/i);
-if(!ID){ return false; }
-if(!player_config){ return false; }
+if(!ID || !player_config){ return false; }
 
-$.ajax({
-    url: player_config + "?vkey=" + ID[1],
-    dataType: "xml",
-    success: function(xml){
-        var video_url = $(xml).find("video").find("src").text();
-        if(video_url){
-            オトシゴロ.ダウンロード(video_url);
-        }
+var apiurl = player_config + "?vkey=" + ID[1];
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", apiurl);
+xhr.addEventListener("load", function(){
+    var xml = xhr.responseXML;
+    var video_url = xml.getElementsByTagName("video")[0].getElementsByTagName("src")[0].firstChild.nodeValue;
+    //<xml><video><src>動画URL</src></video></xml> DOM操作はワケワカラン
+
+    if(video_url){
+        オトシゴロ.ダウンロード(video_url);
     }
 });
+xhr.send();
 
 
-}($.noConflict(true)));
+}();

@@ -1,23 +1,24 @@
-$(function($){
+!function(){
 
 
 var ID = document.URL.match(/watch\/(\w*\d+)/i);
 if(!ID){ return false; }
 
-$.ajax({
-    url: "http://flapi.nicovideo.jp/api/getflv/" + ID[1],
-    xhrFields: {withCredentials: true},
-    success: function(data){
-        var query = オトシゴロ.クエリ分解(data);
-        if(!query.url){ return false; }
+var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + ID[1];
 
-        var video_url  = query.url;
-        var video_file = $("title").text() + '.mp4'; //面倒なので
+var xhr = new XMLHttpRequest();
+xhr.open("GET", apiurl);
+xhr.withCredentials = true;
+xhr.addEventListener("load", function(){
+    var query = オトシゴロ.クエリ分解(xhr.responseText);
+    if(query.url){
+       var video_url  = query.url;
+       var video_file = "";
 
         オトシゴロ.ダウンロード(video_url, video_file);
     }
 });
+xhr.send();
 
 
-
-}($.noConflict(true)));
+}();

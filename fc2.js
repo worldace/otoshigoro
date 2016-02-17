@@ -1,18 +1,22 @@
-$(function($){
+!function(){
+
 
 var ID = document.URL.match(/\/content\/(\w+)/i);
 if(!ID){ return false; }
 
-$.ajax({
-    url: "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_"+"gGddgPfeaf_gzyr") + "&v=" + ID[1] + "&upid=" + ID[1],
-    success: function(data){
-        var query = オトシゴロ.クエリ分解(data);
-        if(query.filepath){
-            var video_url = query.filepath + '?mid=' + query.mid;
-            オトシゴロ.ダウンロード(video_url);
-        }
+var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_"+"gGddgPfeaf_gzyr") + "&v=" + ID[1] + "&upid=" + ID[1];
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", apiurl);
+xhr.addEventListener("load", function(){
+    var query = オトシゴロ.クエリ分解(xhr.responseText);
+    if(query.filepath){
+        var video_url = query.filepath + '?mid=' + query.mid;
+
+        オトシゴロ.ダウンロード(video_url);
     }
 });
+xhr.send();
 
 
-}($.noConflict(true)));
+}();

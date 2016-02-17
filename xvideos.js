@@ -1,4 +1,4 @@
-$(function($){
+!function(){
 
 
 var flashvars = $("#flash-player-embed").attr("flashvars");
@@ -11,4 +11,4 @@ if(flashvars) {
 }
 
 
-}($.noConflict(true)));
+}();
