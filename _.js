@@ -117,7 +117,7 @@ APIアクセス: function(apiurl, callback){
 
     //クロスドメイン対策(ニコニコ動画用)
     if(apiurl.indexOf("http") == 0 || apiurl.indexOf("//") == 0){
-        if(document.domain != apiurl.split("/")[2]){
+        if(apiurl.split("/")[2] != document.domain){
             xhr.withCredentials = true;
         }
     }
