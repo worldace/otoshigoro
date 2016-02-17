@@ -44,25 +44,24 @@ var オトシゴロ = {
 ローダー: function(files){
 
 	if(files.length == 0){ return; }
-    
-    var that   = this;
+
     var file   = files.shift();
 	var script = document.createElement('script');
 	document.body.appendChild(script);
 
     script.setAttribute("class", "otoshigoro");
 	script.charset = "UTF-8";
-	script.onload  = function(){ that.ローダー(files); };
+	script.onload  = function(){ this.ローダー(files); }.bind(this);
 	script.src     = file;
 },
 
 
 ダウンロード: function(url, filename){
 
+    if(!url){ return; }
+
     var ua  = window.navigator.userAgent.toLowerCase();
     var dl;
-
-    if(!url){ return; }
 
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
