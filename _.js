@@ -108,23 +108,19 @@ var オトシゴロ = {
 
 APIアクセス: function(apiurl, callback){
 
-    //apiurlのホスト名を求める
+    var xhr = new XMLHttpRequest();
+
+    //クロスドメイン対策(ニコニコ動画用)
     if(apiurl.indexOf("http") == 0 || apiurl.indexOf("//") == 0){
-        var apihost = apiurl.split("/")[2];
-    }
-    else {
-        var apihost = document.domain;
+        if(document.domain != apiurl.split("/")[2]){
+            xhr.withCredentials = true;
+        }
     }
 
-    //HTTPアクセス
-    var xhr = new XMLHttpRequest();
     xhr.open("GET", apiurl);
     xhr.addEventListener("load", function(){
         if(xhr.status == 200) { callback(xhr.responseText, xhr.responseXML); }
     });
-    if(apihost != document.domain){
-        xhr.withCredentials = true;
-    }
     xhr.send();
 }
 
