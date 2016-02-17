@@ -2,7 +2,7 @@
 
 
 var ID = document.URL.match(/(\d+)/i);
-if(!ID || !player_config){ return false; }
+if(!ID || !player_config){ return; }
 
 var apiurl = player_config + "?vkey=" + ID[1];
 

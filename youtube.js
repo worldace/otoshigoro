@@ -16,7 +16,7 @@ for(var i = 0; i < b.length; i++){
     if(b[i].itag1 == "mp4" || b[i].itag1 == "flv"){ c.push(b[i]); }
 }
 
-if(c.length == 0){ return false; }
+if(c.length == 0){ return; }
 c.sort(function(x,y){ return (x.itag2 > y.itag2) ? -1 : 1; });
 
 var 動画URL = c[0].url;

@@ -62,7 +62,7 @@ var オトシゴロ = {
     var ua  = window.navigator.userAgent.toLowerCase();
     var dl;
 
-    if(!url){ return false; }
+    if(!url){ return; }
 
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
@@ -96,7 +96,7 @@ var オトシゴロ = {
 
 クエリ分解: function(str){
 
-    if(!str){ return false; }
+    if(!str){ return; }
 
     var result = {};
     var parameters = str.split('&');

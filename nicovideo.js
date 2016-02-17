@@ -2,7 +2,7 @@
 
 
 var ID = document.URL.match(/watch\/(\w*\d+)/i);
-if(!ID){ return false; }
+if(!ID){ return; }
 
 var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + ID[1];
 
