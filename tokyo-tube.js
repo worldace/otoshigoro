@@ -10,8 +10,7 @@ var xhr = new XMLHttpRequest();
 xhr.open("GET", apiurl);
 xhr.addEventListener("load", function(){
     var video_url = xhr.responseXML.querySelector("video src").textContent;
-    //<xml><video><src>動画URL</src></video></xml> ↓でも可。DOM操作はワケワカラン
-    //var video_url = xhr.responseXML.getElementsByTagName("video")[0].getElementsByTagName("src")[0].firstChild.nodeValue;
+    //<xml><video><src>動画URL</src></video></xml>
 
     if(video_url){
         オトシゴロ.ダウンロード(video_url);
