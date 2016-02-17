@@ -123,7 +123,7 @@ APIアクセス: function(apiurl, callback){
 
     xhr.open("GET", apiurl);
     xhr.addEventListener("load", function(){
-        if(xhr.status == 200) { callback(xhr.responseText, xhr.responseXML); }
+        if(xhr.status == 200) { callback(xhr); }
     });
     xhr.send();
 }
