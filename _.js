@@ -50,6 +50,7 @@ var オトシゴロ = {
 	var script = document.createElement('script');
 	document.body.appendChild(script);
 
+    script.setAttribute("class", "otoshigoro");
 	script.charset = "UTF-8";
 	script.onload  = function(){ that.ローダー(files); };
 	script.src     = file;
@@ -63,6 +64,7 @@ var オトシゴロ = {
 
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
+        dl.setAttribute("class", "otoshigoro");
         dl.width  = 1;
         dl.height = 1;
         document.body.appendChild(dl);
@@ -70,6 +72,7 @@ var オトシゴロ = {
     }
     else if (ua.indexOf('firefox') != -1){
         dl = document.createElement('a');
+        dl.setAttribute("class", "otoshigoro");
         dl.href = url;
         dl.download = filename;
         dl.target = "_blank";
@@ -78,6 +81,7 @@ var オトシゴロ = {
     }
     else{
         dl = document.createElement('a');
+        dl.setAttribute("class", "otoshigoro");
         dl.href = url;
         dl.download = filename;
         document.body.appendChild(dl);

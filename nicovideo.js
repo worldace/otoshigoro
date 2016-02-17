@@ -11,9 +11,9 @@ var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + ID[1];
     var query = オトシゴロ.クエリ分解(data);
     if(query.url){
        var video_url  = query.url;
-       var video_file = "";
+       var video_file = document.querySelector("title").textContent;
 
-        オトシゴロ.ダウンロード(video_url, video_file);
+       オトシゴロ.ダウンロード(video_url, video_file);
     }
 });
 
