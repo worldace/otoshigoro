@@ -6,11 +6,9 @@ if(!ID){ return false; }
 
 var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + ID[1];
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", apiurl);
-xhr.withCredentials = true;
-xhr.addEventListener("load", function(){
-    var query = オトシゴロ.クエリ分解(xhr.responseText);
+
+オトシゴロ.APIアクセス(apiurl, function(data){
+    var query = オトシゴロ.クエリ分解(data);
     if(query.url){
        var video_url  = query.url;
        var video_file = "";
@@ -18,7 +16,6 @@ xhr.addEventListener("load", function(){
         オトシゴロ.ダウンロード(video_url, video_file);
     }
 });
-xhr.send();
 
 
 }();

@@ -103,6 +103,29 @@ var オトシゴロ = {
         result[name] = value;
     }
     return result;
+},
+
+
+APIアクセス: function(apiurl, callback){
+
+    //apiurlのホスト名を求める
+    if(apiurl.indexOf("http") == 0 || apiurl.indexOf("//") == 0){
+        var apihost = apiurl.split("/")[2];
+    }
+    else {
+        var apihost = document.domain;
+    }
+
+    //HTTPアクセス
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", apiurl);
+    xhr.addEventListener("load", function(){
+        if(xhr.status == 200) { callback(xhr.responseText, xhr.responseXML); }
+    });
+    if(apihost != document.domain){
+        xhr.withCredentials = true;
+    }
+    xhr.send();
 }
 
 
