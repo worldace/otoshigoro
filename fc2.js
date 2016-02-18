@@ -4,7 +4,7 @@
 var ID = document.URL.match(/\/content\/(\w+)/i);
 if(!ID){ return; }
 
-var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_"+"gGddgPfeaf_gzyr") + "&v=" + ID[1] + "&upid=" + ID[1];
+var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_gGddgPfeaf_gzyr") + "&v=" + ID[1] + "&upid=" + ID[1];
 
 
 オトシゴロ.APIアクセス(apiurl, function(xhr){

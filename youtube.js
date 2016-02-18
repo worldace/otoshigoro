@@ -21,23 +21,14 @@ for(var i = 0; i < b.length; i++){
 if(c.length == 0){ return; }
 c.sort(function(x,y){ return (x.itag2 > y.itag2) ? -1 : 1; });
 
-var 動画URL = c[0].url;
-var 動画タイトル = t;
 
-
-//動画URLにsignature追加(これが必要なのかは分からない)
-if(c[0].s){
-    動画URL = 動画URL + "&signature=" + c[0].s;
+//IEの場合、タイトルをSJISに変換する
+var ua = window.navigator.userAgent.toLowerCase();
+if(ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
+    t = EscapeSJIS(t);
 }
 
-//動画URLにtitle追加
-var useragent = window.navigator.userAgent.toLowerCase();
-if (useragent.indexOf('msie') != -1 || useragent.indexOf('trident') != -1) {
-    動画URL = 動画URL + "&title=" + EscapeSJIS(動画タイトル);
-}
-else{
-    動画URL = 動画URL + "&title=" + 動画タイトル;
-}
+var 動画URL = c[0].url + "&title=" + t;
 
 オトシゴロ.ダウンロード(動画URL);
 
