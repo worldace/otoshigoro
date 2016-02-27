@@ -8,15 +8,15 @@ var オトシゴロ = {
 
     var nocache = '?' + Date.now();
 
-    if(host.indexOf("nicovideo.jp") >= 0) return [this.ホームURL+"nicovideo.js"+nocache];
-    if(host.indexOf("video.fc2.com") >= 0) return [this.ホームURL+"lib/md5.js", this.ホームURL+"fc2.js"+nocache];
-    if(host.indexOf("youtube.com") >= 0) return [this.ホームURL+"lib/ecl.js", this.ホームURL+"youtube.js"+nocache];
-    if(host.indexOf("xvideos.com") >= 0) return [this.ホームURL+"xvideos.js"+nocache];
-    if(host.indexOf("tokyo-porn-tube.com") >= 0) return [this.ホームURL+"tokyo-porn-tube.js"+nocache];
-    if(host.indexOf("tokyo-tube.com") >= 0) return [this.ホームURL+"tokyo-tube.js"+nocache];
-    if(host.indexOf("himado.in") >= 0) return [this.ホームURL+"himado.js"+nocache];
-    if(host.indexOf("nosub.tv") >= 0) return [this.ホームURL+"nosub.js"+nocache];
-    if(host.indexOf("anitube.se") >= 0) return [this.ホームURL+"anitube.js"+nocache];
+    if(host.indexOf("nicovideo.jp") >= 0) return [オトシゴロ.ホームURL+"nicovideo.js"+nocache];
+    if(host.indexOf("video.fc2.com") >= 0) return [オトシゴロ.ホームURL+"lib/md5.js", オトシゴロ.ホームURL+"fc2.js"+nocache];
+    if(host.indexOf("youtube.com") >= 0) return [オトシゴロ.ホームURL+"lib/ecl.js", オトシゴロ.ホームURL+"youtube.js"+nocache];
+    if(host.indexOf("xvideos.com") >= 0) return [オトシゴロ.ホームURL+"xvideos.js"+nocache];
+    if(host.indexOf("tokyo-porn-tube.com") >= 0) return [オトシゴロ.ホームURL+"tokyo-porn-tube.js"+nocache];
+    if(host.indexOf("tokyo-tube.com") >= 0) return [オトシゴロ.ホームURL+"tokyo-tube.js"+nocache];
+    if(host.indexOf("himado.in") >= 0) return [オトシゴロ.ホームURL+"himado.js"+nocache];
+    if(host.indexOf("nosub.tv") >= 0) return [オトシゴロ.ホームURL+"nosub.js"+nocache];
+    if(host.indexOf("anitube.se") >= 0) return [オトシゴロ.ホームURL+"anitube.js"+nocache];
 
     return [];
 },
@@ -29,7 +29,7 @@ var オトシゴロ = {
     var file   = files.shift();
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.addEventListener('load', function(){ this.ローダー(files); }.bind(this));
+    script.addEventListener('load', function(){ オトシゴロ.ローダー(files); });
     script.setAttribute("class", "otoshigoro");
     script.charset = "UTF-8";
     script.src     = file;
