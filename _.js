@@ -24,15 +24,15 @@ var オトシゴロ = {
 
 ローダー: function(files){
 
-	if(files.length == 0){ return; }
+    if(files.length == 0){ return; }
 
     var file   = files.shift();
-	var script = document.createElement('script');
-	document.body.appendChild(script);
+    var script = document.createElement('script');
+    document.body.appendChild(script);
     script.addEventListener('load', function(){ this.ローダー(files); }.bind(this));
     script.setAttribute("class", "otoshigoro");
-	script.charset = "UTF-8";
-	script.src     = file;
+    script.charset = "UTF-8";
+    script.src     = file;
 },
 
 
