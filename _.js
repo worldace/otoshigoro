@@ -78,14 +78,12 @@ var オトシゴロ = {
     if(!str){ return; }
 
     var result = {};
-    var parameters = str.split('&');
+    var query  = str.split('&');
 
-    for(var i = 0; i < parameters.length; i++){
-        var element = parameters[i].split('=');
-        var name    = decodeURIComponent(element[0]);
-        var value   = decodeURIComponent(element[1]);
-
-        result[name] = value;
+    for(var i = 0; i < query.length; i++){
+        var key   = decodeURIComponent(query[i].split('=')[0]);
+        var value = decodeURIComponent(query[i].split('=')[1]);
+        result[key] = value;
     }
     return result;
 },
