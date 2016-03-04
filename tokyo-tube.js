@@ -1,10 +1,10 @@
 !function(){
 
 
-var ID = document.URL.match(/(\d+)/i);
-if(!ID || !player_config){ return; }
+var 動画ID = document.URL.match(/(\d+)/i)[1];
+if(!動画ID || !player_config){ return; }
 
-var apiurl = player_config + "?vkey=" + ID[1];
+var apiurl = player_config + "?vkey=" + 動画ID;
 
 
 オトシゴロ.APIアクセス(apiurl, function(xhr){

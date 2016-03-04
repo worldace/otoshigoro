@@ -1,10 +1,10 @@
 !function(){
 
 
-var ID = document.URL.match(/watch\/(\w*\d+)/i);
-if(!ID){ return; }
+var 動画ID = document.URL.match(/watch\/(\w*\d+)/i)[1];
+if(!動画ID){ return; }
 
-var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + ID[1];
+var apiurl = "http://flapi.nicovideo.jp/api/getflv/" + 動画ID;
 
 
 オトシゴロ.APIアクセス(apiurl, function(xhr){

@@ -1,10 +1,10 @@
 !function(){
 
 
-var ID = document.URL.match(/\/content\/(\w+)/i);
-if(!ID){ return; }
+var 動画ID = document.URL.match(/\/content\/(\w+)/i)[1];
+if(!動画ID){ return; }
 
-var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(ID[1]+"_gGddgPfeaf_gzyr") + "&v=" + ID[1] + "&upid=" + ID[1];
+var apiurl = "/ginfo.php?otag=1&mimi=" + CryptoJS.MD5(動画ID+"_gGddgPfeaf_gzyr") + "&v=" + 動画ID + "&upid=" + 動画ID;
 
 
 オトシゴロ.APIアクセス(apiurl, function(xhr){
