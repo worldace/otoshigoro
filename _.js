@@ -46,8 +46,8 @@ var オトシゴロ = {
     if (ua.indexOf('msie') != -1 || ua.indexOf('trident') != -1) {
         dl = document.createElement('iframe');
         dl.setAttribute("class", "otoshigoro");
-        dl.width  = 1;
-        dl.height = 1;
+        dl.width  = 0;
+        dl.height = 0;
         document.body.appendChild(dl);
         dl.src = url;
     }
