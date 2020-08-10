@@ -69,7 +69,7 @@ var オトシゴロ = {
         dl.click();
     }
     
-    //console.log(url);
+    console.log(url);
 },
 
 

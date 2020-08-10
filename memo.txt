@@ -1,9 +1,9 @@
-ƒRƒ“ƒeƒ“ƒcƒZƒLƒ…ƒŠƒeƒBƒ|ƒŠƒV[
+ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒªã‚·ãƒ¼
 
 Refused to load the script 'https://ss1.xrea.com/musou.s38.xrea.com/d/_.js?1454665283924'
 because it violates the following Content Security Policy directive:
  "default-src 'self' 'unsafe-inline' 'unsafe-eval' *.xvideos.com *.xnxx.com *.trafficfactory.biz ajax.googleapis.com www.google-analytics.com *.addthis.com www.loading-delivery2.com apis.google.com www.google.com".
 Note that 'script-src' was not explicitly set, so 'default-src' is used as a fallback.
 
-XVIDEO ‚Å Firefox‚ÆChrome‚ªˆø‚ÁŠ|‚©‚é
+XVIDEO ã§ Firefoxã¨ChromeãŒå¼•ã£æ›ã‹ã‚‹
 -------------------------------------------------------------------
